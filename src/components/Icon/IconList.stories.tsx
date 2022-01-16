@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved.
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -17,11 +17,11 @@ export default {
 
 export const AccelIcons: Story = () => {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", rowGap: 20 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", rowGap: 20, fontFamily: "Roboto" }}>
       {AccelIconsList.map((icon, index) => (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} key={index}>
           <i className={icon} style={{ fontSize: 24, marginBottom: 10 }} />
-          <span>{icon}</span>
+          <span style={{textAlign: "center"}}>{icon}</span>
         </div>
       ))}
     </div>

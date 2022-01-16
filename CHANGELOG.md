@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.35]
 ### Added
-- show all iconography to storybook
+- Show all iconography to storybook
+- `value` and `isDisabled` props in `Checkbox` component
+- `dataQa` prop in `ModalPage`
+- `children` and `customComponent` props in `DynamicTable`
 
 ## [0.1.34]
 ### Added
