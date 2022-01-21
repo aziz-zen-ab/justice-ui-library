@@ -7,24 +7,49 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import "../../styles/icons/ab_icons.css";
-import { AccelIconsList } from "./IconList";
+import { AccelIconsList, AddedIconList, MissingIcons } from "./IconList";
 import { Button } from "../styled-atlaskit/Button/Button";
 import { FieldLabel } from "../Form/utility";
+import { HorizontalDivider } from "../Divider";
 
 export default {
   title: "Iconography/Icons",
 } as Meta;
 
-export const AccelIcons: Story = () => {
+interface IconsProps {
+  iconsArray: string[];
+}
+
+const RenderIcons: React.FunctionComponent<IconsProps> = ({ iconsArray }) => {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", rowGap: 20, fontFamily: "Roboto" }}>
-      {AccelIconsList.map((icon, index) => (
+      {iconsArray.map((icon, index) => (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} key={index}>
           <i className={icon} style={{ fontSize: 24, marginBottom: 10 }} />
-          <span style={{textAlign: "center"}}>{icon}</span>
+          <span style={{ textAlign: "center" }}>{icon}</span>
         </div>
       ))}
     </div>
+  );
+};
+
+export const AccelIcons: Story = () => {
+  return (
+    <>
+      <div style={{ marginBottom: 25 }}>
+        <FieldLabel label={`The AccelIcons based on Figma (${AccelIconsList.length}): `} />
+        <RenderIcons iconsArray={AccelIconsList} />
+      </div>
+      <HorizontalDivider />
+      <div style={{ marginBottom: 25 }}>
+        <FieldLabel label={`The Added Icons based on Figma (${AddedIconList.length}): `} />
+        <RenderIcons iconsArray={AddedIconList} />
+      </div>
+      <div style={{ marginBottom: 25 }}>
+        <FieldLabel label={`The Missing Icons based on Figma (${MissingIcons.length}): `} />
+        <RenderIcons iconsArray={MissingIcons} />
+      </div>
+    </>
   );
 };
 
